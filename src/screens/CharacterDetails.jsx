@@ -1,11 +1,11 @@
 import React from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, View } from 'react-native'
+import { COLORS } from '../constants/colors'
 
 const CharacterDetails = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <Text>CharacterDetails</Text>
-      <Button title='Volver al inicio' onPress={() => navigation.popToTop()}/>
+      <Button title='go to home' color={COLORS.primary} onPress={() => navigation.popToTop()}/>
     </View>
   )
 }

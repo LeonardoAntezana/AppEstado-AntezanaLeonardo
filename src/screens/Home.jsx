@@ -1,11 +1,11 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button} from 'react-native'
+import { StyleSheet, View, Button} from 'react-native'
+import { COLORS } from '../constants/colors'
 
 const Home = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <Text>Home</Text>
-      <Button title='Go to Categories' onPress={() => navigation.navigate('Categories')}/>
+      <Button title='Go to Categories' color={COLORS.primary} onPress={() => navigation.navigate('Categories')}/>
     </View>
   )
 }
