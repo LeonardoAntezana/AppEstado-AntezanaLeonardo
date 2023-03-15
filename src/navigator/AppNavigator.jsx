@@ -1,4 +1,5 @@
 import React from 'react'
+import { Platform } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native' 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { COLORS } from '../constants/colors'
@@ -12,27 +13,38 @@ const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
+      <Stack.Navigator 
+        initialRouteName='Home'
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: Platform.OS === 'android' && COLORS.primary
+          },
+          headerTintColor: Platform.OS === 'android' ? '#fff' : COLORS.primary,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}
+        >
         <Stack.Screen
           name='Home' 
           component={Home}
           options={{
-            headerTintColor: COLORS.primary,
+            title: 'Inicio'
           }}
           />
         <Stack.Screen 
           name='Categories' 
           component={ListCharacters}
-          options={{
-            headerTintColor: COLORS.primary,
-          }}
+          options={({ route }) => ({
+            title: route.params.name,
+          })}
           />
         <Stack.Screen 
-          name='Character' 
+          name='Details' 
           component={CharactersDetails}
-          options={{
-            headerTintColor: COLORS.primary,
-          }}
+          options={({ route }) => ({
+            title: route.params.name,
+          })}
           />
       </Stack.Navigator>
     </NavigationContainer>
