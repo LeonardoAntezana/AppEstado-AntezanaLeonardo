@@ -1,21 +1,25 @@
 import React from 'react'
-import { StyleSheet, View, Button } from 'react-native'
-import { COLORS } from '../constants/colors'
+import { FlatList } from 'react-native'
+import { BREADS } from '../../data/breads';
+import { BreadItem } from '../components';
 
-const ListCharacters = ({ navigation }) => {
+const ListCharacters = ({ navigation, route }) => {
+  const { categoryId } = route.params
+  const breads = BREADS.filter(bread => bread.category === categoryId) 
+  
+  const handleSelected = bread => {
+    navigation.navigate('Details', {
+      ...bread
+    })
+  }
+
   return (
-    <View style={styles.screen}>
-      <Button title='Detail Character' color={COLORS.primary} onPress={() => navigation.navigate('Character')}/>
-    </View>
+    <FlatList
+    data={breads}
+    renderItem={({item}) => <BreadItem bread={item} onSelected={handleSelected}/>}
+    keyExtractor={(bread) => bread.id}
+    />
   )
 }
 
 export default ListCharacters
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
