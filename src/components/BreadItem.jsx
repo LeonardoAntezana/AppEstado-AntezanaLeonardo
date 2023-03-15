@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { FONTS } from '../constants/fonts'
 
 const BreadItem = ({bread, onSelected}) => {
   const { name, price, weight } = bread;
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: 'OpenSans_700Bold'
+    fontFamily: FONTS.OPSANSBOLD,
   },
   details: {
     fontSize: 18,

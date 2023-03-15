@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FONTS } from '../constants/fonts'
 
 const GridItem = ({category, onSelected}) => {
   const {title, color} = category;
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   title: {
-    fontFamily: 'OpenSans_700Bold',
+    fontFamily: FONTS.OPSANSBOLD,
     textAlign: 'center',
   }
 })
