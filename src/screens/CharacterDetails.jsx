@@ -1,11 +1,15 @@
 import React from 'react'
-import { Button, StyleSheet, View } from 'react-native'
-import { COLORS } from '../constants/colors'
+import { StyleSheet, View, Text } from 'react-native'
+import { FONTS } from '../constants/fonts'
 
-const CharacterDetails = ({ navigation }) => {
+const CharacterDetails = ({ route }) => {
+  const { name, description, price, weight } = route.params
   return (
     <View style={styles.screen}>
-      <Button title='go to home' color={COLORS.primary} onPress={() => navigation.popToTop()}/>
+      <Text style={styles.title}>{name}</Text>
+      <Text style={styles.description}>{description}</Text>      
+      <Text>${price}</Text>      
+      <Text>{weight}</Text>      
     </View>
   )
 }
@@ -15,7 +19,17 @@ export default CharacterDetails
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: '#fff',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 20,
+    fontFamily: FONTS.OPSANSBOLD,
+    marginBottom: 10
+  },
+  description: {
+    maxWidth: '70%',
+    textAlign: 'center'
   }
 })
