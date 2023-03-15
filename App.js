@@ -19,6 +19,10 @@ export default function App() {
     }
   }, [fontsLoaded])
 
+  if(!fontsLoaded){
+    return null
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <AppNavigator/>
