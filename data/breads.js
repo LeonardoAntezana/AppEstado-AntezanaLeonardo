@@ -6,6 +6,7 @@ export const BREADS = [
         description: 'Clasico pan frances',
         weight: '350gr',
         price: 1600,
+        picture: 'https://media.istockphoto.com/id/517546550/es/foto/rodajas-de-crujiente-baguette-en-tela-de-saco.jpg?s=612x612&w=0&k=20&c=50pBYuO6PEkn_u3t4fwMdJO4wpKT9w8K5k88vlRfbos=',
     },
     {
         id: '2',
@@ -14,6 +15,7 @@ export const BREADS = [
         description: 'Pan de alta hidratacion, miga alveolada y corteza crujiente',
         weight: '800gr',
         price: 3000,
+        picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFn0jdNfGwH0TTGyuZAgNR6NlcS8-vdo6_lQ&usqp=CAU',
     },
     {
         id: '3',
@@ -22,6 +24,7 @@ export const BREADS = [
         description: 'Textura sua, decorado con semillas de sesamo tostadas',
         weight: '120gr',
         price: 3300,
+        picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Y21I-NBu9g2SYJP4I5mQVvWLqbzVKvON0A&usqp=CAU',
     },
     {
         id: '4',
@@ -30,5 +33,6 @@ export const BREADS = [
         description: 'Pidelo entero o tajado, con o sin semillas',
         weight: '900gr',
         price: 3300,
+        picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4itbyjpFXsCSnzfdKGvcsaObU3x0tKyYUsQ&usqp=CAU',
     },
 ]
