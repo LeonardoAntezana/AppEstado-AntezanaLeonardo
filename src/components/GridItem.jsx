@@ -1,19 +1,26 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, ImageBackground, Text, TouchableOpacity, View } from 'react-native'
 import { FONTS } from '../constants/fonts'
 
 const GridItem = ({category, onSelected}) => {
-  const {title, color} = category;
+  const {title, url} = category;
   return (
     <View style={styles.gridItem}>
-      <TouchableOpacity 
+      <ImageBackground 
+      source={{uri: url}}
+      style={[styles.image]}
+      imageStyle={{borderRadius: 5}} 
+      resizeMode='stretch'
+      >
+        <TouchableOpacity 
         onPress={() => onSelected(category)}
-        style={[styles.container, {backgroundColor: color}]}
+        style={styles.container}
         >
-        <View>
-          <Text style={styles.title}>{title}</Text>
-        </View>
-      </TouchableOpacity>
+          <View>
+            <Text style={styles.title}>{title}</Text>
+          </View>
+        </TouchableOpacity>
+      </ImageBackground>
     </View>
   )
 }
@@ -23,23 +30,23 @@ export default GridItem
 const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
-    borderRadius: 6,
-    margin: 15,
+    marginVertical: 15,
+    marginHorizontal: 30,
     height: 150,
   },
   container: {
     flex: 1,
-    borderRadius: 6,
-    shadowColor: 'black',
-    shadowOpacity: 0.26,
-    shadowOffset: {width: 0, height: 2},
-    shadowRadius: 6,
-    elevation: 3,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
     padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  image: {
+    flex: 1,
   },
   title: {
+    color: '#fff',
+    fontSize: 20,
+    textTransform: 'uppercase',
     fontFamily: FONTS.OPSANSBOLD,
     textAlign: 'center',
   }

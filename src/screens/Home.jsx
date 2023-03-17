@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, StyleSheet} from 'react-native'
+import { FlatList, StyleSheet, View } from 'react-native'
 import { GridItem } from '../components';
 import {CATEGORIES} from '../../data/categories';
 
@@ -13,12 +13,13 @@ const Home = ({ navigation }) => {
   }
 
   return (
-    <FlatList
-    data={CATEGORIES}
-    renderItem={({item}) => <GridItem category={item} onSelected={handleSelected}/>}
-    keyExtractor={(category) => category.id}
-    numColumns={2}
-    />
+    <View style={styles.screen}>
+      <FlatList
+      data={CATEGORIES}
+      renderItem={({item}) => <GridItem category={item} onSelected={handleSelected}/>}
+      keyExtractor={(category) => category.id}
+      />
+    </View>
   )
 }
 
@@ -27,7 +28,7 @@ export default Home
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    marginBottom: 80,
+    backgroundColor: '#D9D9D9',
   }
 })
