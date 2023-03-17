@@ -15,9 +15,9 @@ const ListCharacters = ({ navigation, route }) => {
 
   return (
     <FlatList
-    data={breads}
-    renderItem={({item}) => <BreadItem bread={item} onSelected={handleSelected}/>}
-    keyExtractor={(bread) => bread.id}
+      data={breads}
+      renderItem={({item}) => <BreadItem bread={item} onSelected={handleSelected}/>}
+      keyExtractor={(bread) => bread.id}
     />
   )
 }
