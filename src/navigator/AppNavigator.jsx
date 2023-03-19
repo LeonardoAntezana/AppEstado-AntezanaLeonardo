@@ -14,7 +14,7 @@ const AppNavigator = () => {
       <Stack.Navigator 
         initialRouteName='Home'
         screenOptions={{
-          headerTintColor: Platform.OS === 'android' ? '#A94DAB' : COLORS.primary,
+          headerTintColor: Platform.OS === 'android' ? COLORS.primary : COLORS.primary,
           headerTitleStyle: {
             fontWeight: 'bold',
           }

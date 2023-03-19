@@ -2,11 +2,13 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { TabIconCustom } from '../components';
+import { COLORS } from '../constants/colors';
 
 const BottomTabs = createBottomTabNavigator();
 
 import AppNavigator from './AppNavigator';
 import CartNavigator from './CartNavigator';
+import OrdersNavigator from './OrdersNavigator'
 
 const TabsNavigator = () => {
   return (
@@ -26,7 +28,7 @@ const TabsNavigator = () => {
           <TabIconCustom 
           iconName='home-outline'
           title='Tienda'
-          tintColor={focused ? 'red' : 'black'} 
+          tintColor={focused ? COLORS.primary : 'black'} 
           size={24} 
           />
           )
@@ -40,7 +42,21 @@ const TabsNavigator = () => {
           <TabIconCustom 
           iconName='cart-outline'
           title='Carrito' 
-          tintColor={focused ? 'red' : 'black'}
+          tintColor={focused ? COLORS.primary : 'black'}
+          size={24} 
+          />
+          )
+        }}
+        />
+         <BottomTabs.Screen
+        name='Orders-bar'
+        component={OrdersNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+          <TabIconCustom 
+          iconName='list-outline'
+          title='Ordenes' 
+          tintColor={focused ? COLORS.primary : 'black'}
           size={24} 
           />
           )
