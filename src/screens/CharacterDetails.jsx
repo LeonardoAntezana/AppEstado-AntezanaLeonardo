@@ -1,11 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { StyleSheet, View, Button, Text, Image, Dimensions } from 'react-native'
 import { FONTS } from '../constants/fonts'
 
 const { width } = Dimensions.get('window')
 
-const CharacterDetails = ({ navigation, route }) => {
-  const { name, description, price, weight, picture } = route.params
+const CharacterDetails = ({ navigation }) => {
+
+  const { name, description, price, weight, picture } = useSelector(state => state.breads.selectedBread)
+  
   return (
     <View style={styles.screen}>
       <View style={styles.buttonContainer}>

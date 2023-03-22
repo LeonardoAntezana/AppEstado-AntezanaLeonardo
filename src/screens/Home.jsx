@@ -1,21 +1,23 @@
 import React from 'react'
 import { FlatList, StyleSheet, View } from 'react-native'
 import { GridItem } from '../components';
-import {CATEGORIES} from '../../data/categories';
+import { useSelector, useDispatch} from 'react-redux';
+import { selectCategory } from '../redux/actions/category.action';
 
 const Home = ({ navigation }) => {
   
+  const categories = useSelector(state => state.categories.categories);
+  const dispatch = useDispatch();
+
   const handleSelected = category => {
-    navigation.navigate('Categories', {
-      categoryId: category.id,
-      name: category.title
-    })
+    dispatch(selectCategory(category.id))
+    navigation.navigate('Categories', { name: category.title })
   }
 
   return (
     <View style={styles.screen}>
       <FlatList
-      data={CATEGORIES}
+      data={categories}
       renderItem={({item}) => <GridItem category={item} onSelected={handleSelected}/>}
       keyExtractor={(category) => category.id}
       />
