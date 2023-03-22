@@ -26,7 +26,8 @@ const ListCharacters = ({ navigation }) => {
     return (
       <View style={styles.listEmpty}>
         <TouchableOpacity style={styles.box} onPress={() => navigation.popToTop()}>
-          <Text style={styles.text_box}>Lista vacia</Text>
+          <Text style={styles.text_box}>Sin productos :c</Text>
+          <Text style={styles.text_box}>Volver al inicio</Text>
         </TouchableOpacity>
       </View>
     )
@@ -60,9 +61,9 @@ const styles = StyleSheet.create({
   },
   box: {
     backgroundColor: '#fff',
-    padding: 10,
+    paddingVertical: 20,
     borderRadius: 5,
-    width: width / 3,
+    width: width / 2,
   },
   text_box: {
     textAlign: 'center',
