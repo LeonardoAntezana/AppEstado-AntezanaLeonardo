@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
-import { FlatList, View, StyleSheet } from 'react-native'
+import { FlatList, TouchableOpacity, StyleSheet, Text, Dimensions, View } from 'react-native'
 import { BreadItem } from '../components';
 import { useSelector, useDispatch } from 'react-redux';
 import { breadSelected, filteredBreads } from '../redux/actions/bread.actions';
+import { COLORS } from '../constants/colors'
+
+const { width } = Dimensions.get('screen')
 
 const ListCharacters = ({ navigation }) => {
   
@@ -17,6 +20,16 @@ const ListCharacters = ({ navigation }) => {
   const handleSelected = bread => {
     dispatch(breadSelected(bread.id))
     navigation.navigate('Details', { name: bread.name })
+  }
+
+  if(categoryBreads.length === 0){
+    return (
+      <View style={styles.listEmpty}>
+        <TouchableOpacity style={styles.box} onPress={() => navigation.popToTop()}>
+          <Text style={styles.text_box}>Lista vacia</Text>
+        </TouchableOpacity>
+      </View>
+    )
   }
 
   return (
@@ -39,4 +52,21 @@ const styles = StyleSheet.create({
     marginBottom: 80,
     backgroundColor: '#D9D9D9',
   },
+  listEmpty: {
+    flex: 1,
+    backgroundColor: '#D9D9D9',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  box: {
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 5,
+    width: width / 3,
+  },
+  text_box: {
+    textAlign: 'center',
+    color: COLORS.primary,
+    fontSize: 16,
+  }
 })
